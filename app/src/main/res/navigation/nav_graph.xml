@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
 
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.artbookwithtest.Views.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_detailsArt"
+            app:destination="@id/detailsArt" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsArt"
+        android:name="com.example.artbookwithtest.Views.DetailsArt"
+        android:label="fragment_details_art"
+        tools:layout="@layout/fragment_details_art" >
+        <action
+            android:id="@+id/action_detailsArt_to_imageApi"
+            app:destination="@id/imageApi" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageApi"
+        android:name="com.example.artbookwithtest.Views.ImageApi"
+        android:label="fragment_image_api"
+        tools:layout="@layout/fragment_image_api" />
 </navigation>

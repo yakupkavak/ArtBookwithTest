@@ -1,0 +1,47 @@
+package com.example.artbookwithtest.repository
+
+import androidx.lifecycle.LiveData
+import com.example.artbookwithtest.Model.Art
+import com.example.artbookwithtest.Model.ImageResponse
+import com.example.artbookwithtest.Roomdb.ArtDao
+import com.example.artbookwithtest.api.RetrofitApi
+import com.example.artbookwithtest.util.Resource
+import javax.inject.Inject
+
+class ArtRepository @Inject constructor(
+    private val artDao: ArtDao,
+    private val retrofitApi: RetrofitApi) : ArtRepositoryInt {
+    override suspend fun insertArt(art: Art) {
+        artDao.insertArt(art)
+    }
+
+    override suspend fun deleteArt(art: Art) {
+        artDao.deleteArt(art)
+    }
+
+    override fun getArt(): LiveData<List<Art>> {
+        return artDao.observeArts()
+    }
+
+    override suspend fun seartchImage(imageString: String): Resource<ImageResponse> {
+        return try {
+            val response = retrofitApi.imageSearch(imageString)
+            if (response.isSuccessful){
+                response.body()?.let {
+                    return@let
+                }
+
+
+            }
+            else{
+                return Resource.error("There was an error",null)
+            }
+
+        }catch (e:Exception){
+            return Resource.error("There was an error",null)
+        }
+
+
+
+     }
+}

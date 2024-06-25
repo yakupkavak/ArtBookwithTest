@@ -27,11 +27,9 @@ class ArtRepository @Inject constructor(
         return try {
             val response = retrofitApi.imageSearch(imageString)
             if (response.isSuccessful){
-                response.body()?.let {
-                    return@let
-                }
-
-
+                response.body()?.let { //boş değilse içine girdik
+                    return@let Resource.success(it)  //yanıt boş dğeise bunu döndürdük
+                } ?: Resource.error("There was an error",null) //yanıt boş ise bunu döndürdük
             }
             else{
                 return Resource.error("There was an error",null)

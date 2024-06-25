@@ -14,4 +14,5 @@ interface ArtRepositoryInt {
     fun getArt() : LiveData<List<Art>>
 
     suspend fun seartchImage(imageString: String) : Resource<ImageResponse>
+
 }

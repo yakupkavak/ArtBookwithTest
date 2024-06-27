@@ -23,6 +23,7 @@ class ArtRepository @Inject constructor(
         return artDao.observeArts()
     }
 
+    //BURADA ALDIGIMIZ VERİYİ RESOURCE OLARAK KULLANIYORUZ
     override suspend fun seartchImage(imageString: String): Resource<ImageResponse> {
         return try {
             val response = retrofitApi.imageSearch(imageString)

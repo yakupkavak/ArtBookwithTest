@@ -18,10 +18,7 @@ class ImageRecyclerAdapter @Inject constructor(
 
     class ImageViewHolder(val binding : ImageRowBinding) : ViewHolder(binding.root)
 
-
-
     private var onItemClickListener : ((String) -> Unit) ?= null
-
 
     private val diffUtil = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
@@ -58,11 +55,9 @@ class ImageRecyclerAdapter @Inject constructor(
 
         glide.load(url).into(holder.binding.imageViewInrow)
         holder.binding.imageViewInrow.setOnClickListener {
-            setOnItemClickerListener {
                 onItemClickListener?.let {
                     it(url)
                 }
-            }
         }
 
 

@@ -68,7 +68,7 @@ class FeedFragment @Inject constructor(
     }
 
 
-
+        //BURADA VALUE OLARAK SET ETTIĞIMIZ VERİYİ GÜNCELLİYORUZ
     private fun subscireToObserves(){
         viewModel.artList.observe(viewLifecycleOwner,{
             artRecyclerAdapter.arts = it

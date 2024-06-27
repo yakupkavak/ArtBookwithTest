@@ -59,15 +59,11 @@ class ImageApi @Inject constructor(
                 }
             }
         }
-
-
         imageRecyclerAdapter.setOnItemClickerListener { it->
             viewModel.setSelectedImage(it)
             findNavController().popBackStack()
 
         }
-
-
     }
 
     fun subscibeToObservers(){
@@ -89,21 +85,12 @@ class ImageApi @Inject constructor(
                 }
 
                 Status.LOADING -> {
-
                     binding.progressBar.visibility = View.VISIBLE
                 }
 
             }
         })
     }
-
-
-
-
-
-
-
-
 
 
     override fun onDestroyView() {

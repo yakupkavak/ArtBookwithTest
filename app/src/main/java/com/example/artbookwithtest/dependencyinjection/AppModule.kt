@@ -9,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.artbookwithtest.R
 import com.example.artbookwithtest.Roomdb.ArtDao
 import com.example.artbookwithtest.Roomdb.RoomDatabase
+import com.example.artbookwithtest.adapter.ImageRecyclerAdapter
 import com.example.artbookwithtest.api.RetrofitApi
 import com.example.artbookwithtest.repository.ArtRepository
 import com.example.artbookwithtest.repository.ArtRepositoryInt
@@ -56,5 +57,9 @@ object AppModule {
             RequestOptions().placeholder(R.drawable.ic_launcher_background)
                 .error(R.drawable.ic_launcher_background)
         )
+
+    @Singleton
+    @Provides
+    fun injectAdapter(glide: RequestManager) = ImageRecyclerAdapter(glide)
 
 }

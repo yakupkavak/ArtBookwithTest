@@ -11,6 +11,7 @@ import javax.inject.Inject
 class ArtRepository @Inject constructor(
     private val artDao: ArtDao,
     private val retrofitApi: RetrofitApi) : ArtRepositoryInt {
+
     override suspend fun insertArt(art: Art) {
         artDao.insertArt(art)
     }

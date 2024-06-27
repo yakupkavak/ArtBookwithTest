@@ -80,7 +80,8 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
     testImplementation("org.robolectric:robolectric:4.5.1")
-    testImplementation("org.hamcrest:hamcrest-all:1.3.11")
+    testImplementation("org.hamcrest:hamcrest-all:1.3")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
 
 
 
@@ -93,6 +94,10 @@ dependencies {
     androidTestAnnotationProcessor("com.google.dagger:hilt-compiler:2.51.1")
     androidTestImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
     androidTestImplementation("org.robolectric:robolectric:4.5.1")
+    androidTestImplementation("androidx.arch.core:core-testing:2.1.0")
+
+    // Dependencies for Android instrumented unit tests
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.0.0")
 }
 kapt {
     correctErrorTypes = true
